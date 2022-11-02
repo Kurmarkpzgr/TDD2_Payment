@@ -21,13 +21,8 @@ public class SmsTest {
   @BeforeEach
   void setUp() {
     repository = mock(CustomerRepository.class);
-
     service = new PaymentService(repository);
 
-    Long customerId = 3423432L;
-    String password = "validPw";
-
-    customer = new Customer(customerId, password);
 
 //    sms = new fakeSMS(customerId);
   }
@@ -36,10 +31,15 @@ public class SmsTest {
   void sendMessageFailure() {
     SMS fakeSms = new FakeSms();
     long amount = 1_000L;
-    Long customId = 12341L;
+    Long customerId = 3423432L;
+    String password = "validPw";
 
-    when(repository.findById(customId)).thenReturn(customer);
-    Receipt receipt = service.pay(amount, customId);
+    customer = new Customer(customerId, password);
+    customer.setCash(1_500L);
+
+    when(repository.findById(customerId)).thenReturn(customer);
+//    when(service.pay(amount, customerId)).thenReturn(null);
+    Receipt receipt = service.pay(amount, customerId);
 
     assertThatThrownBy(() -> fakeSms.sendMessage(receipt))
         .isInstanceOf(NullReceiptException.class)
@@ -66,3 +66,4 @@ class FakeSms implements SMS {
     System.out.println("Payment Finished");
   }
   }
+

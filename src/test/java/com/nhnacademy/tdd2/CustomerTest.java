@@ -11,7 +11,6 @@ public class CustomerTest {
   PaymentService service;
   // DOC
   CustomerRepository repository;
-
   Customer customer;
 
   @BeforeEach
@@ -28,12 +27,7 @@ public class CustomerTest {
 
   @Test
   void check_mileage(){
-    Long customerId = 3423432L;
-    String password = "validPw";
     long mileage = 500L;
-
-    Customer customer = new Customer(customerId, password);
-
     long originalMileage =  customer.getMileage();
 
     customer.addMileage(mileage);
@@ -43,13 +37,7 @@ public class CustomerTest {
 
   @Test
   void SMS_Check_SendMessage(){
-    Long customerId = 3423432L;
-    String password = "validPw";
     long mileage = 500L;
-
-    Customer customer = new Customer(customerId, password);
-
-
   }
 
 }

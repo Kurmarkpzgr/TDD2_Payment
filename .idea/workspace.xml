@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b217e859-11d3-4537-bebe-b240e6be90e0" name="Changes" comment="firstCommit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/NullReceiptException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/NoSuchPhoneNumberException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/SMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/SMS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/CustomerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/SmsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/SmsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +23,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,7 +63,7 @@
       <recent name="com.nhnacademy.tdd2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SmsTest.sendMessageFailure (1)">
+  <component name="RunManager" selected="JUnit.SmsTest.sendMessageFailure">
     <configuration name="CustomerTest.check_use_mileage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD2_Payment" />
       <extension name="coverage">
@@ -148,9 +146,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SmsTest.sendMessageFailure" />
         <item itemvalue="JUnit.SmsTest.sendMessageFailure (1)" />
         <item itemvalue="JUnit.SmsTest.sendMessageSuccess" />
-        <item itemvalue="JUnit.SmsTest.sendMessageFailure" />
         <item itemvalue="JUnit.PaymentServiceTest.pay_service_result" />
         <item itemvalue="JUnit.CustomerTest.check_use_mileage" />
       </list>
