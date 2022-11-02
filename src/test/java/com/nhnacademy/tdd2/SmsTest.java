@@ -28,7 +28,7 @@ public class SmsTest {
   }
 
   @Test
-  void sendMessageFailure() {
+  void sendMessageTest() {
     SMS fakeSms = new FakeSms();
     long amount = 1_000L;
     Long customerId = 3423432L;
@@ -38,7 +38,6 @@ public class SmsTest {
     customer.setCash(1_500L);
 
     when(repository.findById(customerId)).thenReturn(customer);
-//    when(service.pay(amount, customerId)).thenReturn(null);
     Receipt receipt = service.pay(amount, customerId);
 
     assertThatThrownBy(() -> fakeSms.sendMessage(receipt))
@@ -65,5 +64,5 @@ class FakeSms implements SMS {
     }
     System.out.println("Payment Finished");
   }
-  }
+}
 

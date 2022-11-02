@@ -1,6 +1,7 @@
 package com.nhnacademy.tdd2;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class PaymentService {
 
@@ -17,11 +18,15 @@ public class PaymentService {
    * @param customerId 고객 아이디
    * @return 영수증
    */
-  public Receipt pay(long amount, Long customerId) {
+  public Receipt pay(long amount, Long customerId, long usingMileage) {
+
+    if(usingMileage < 0 || amount < usingMileage ) {
+//      exception
+    }
+
     if (amount < 0) {
       throw new InvalidAmountException(amount);
     }
-
     Customer customer = customerRepository.findById(customerId);
 
     if (customer == null) {
@@ -29,6 +34,8 @@ public class PaymentService {
     }
 
     long cash = customer.getCash();
+
+    amount = useMileage(amount,usingMileage);
 
     if (cash < amount){
       throw new NotEnoughCashException();
@@ -43,6 +50,9 @@ public class PaymentService {
     return new Receipt(customerId, purchaseTime, cash, amount, exchange, mileage);
   }
 
+
+
+
   public long mileageCalculator(long amount) {
     double mileagePercent = 0.01;
 
@@ -55,5 +65,9 @@ public class PaymentService {
 
   public void sendMessage(String phoneNumber){
     System.out.println(phoneNumber + "결재 성공했습니다.");
+  }
+
+  public long useMileage(long amount, long usingMileage) {
+    return amount - usingMileage;
   }
 }

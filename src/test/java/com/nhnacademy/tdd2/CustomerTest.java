@@ -1,7 +1,9 @@
 package com.nhnacademy.tdd2;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,6 +37,21 @@ public class CustomerTest {
     assertThat(customer.getMileage()).isEqualTo(originalMileage + mileage);
   }
 
+  @Test
+  void use_Mileage(){
+
+    long amount = 2000L;
+    long usingMileage = 1000L;
+    long mileage = 500L;
+
+    customer.addMileage(mileage);
+
+    assertThatThrownBy(() -> service.useMileage(amount, usingMileage)).isInstanceOf(
+            NotEnoughMileageException.class).hasMessageContaining("Not enouch mileage");
+
+    verify(customer,times(1)).useMileage(any());
+
+  }
   @Test
   void SMS_Check_SendMessage(){
     long mileage = 500L;
