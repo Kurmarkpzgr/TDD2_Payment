@@ -4,16 +4,13 @@ import java.time.LocalDateTime;
 
 //userId, time, totalPrice, getPrice, change, mileage
 public class Receipt {
-  private long customerId;
-  private LocalDateTime purchaseTime;
-  private long totalPrice;
-  private long customerCash;
-  private long exchange;
-  private long mileage;
+  private final long customerId;
+  private final LocalDateTime purchaseTime;
+  private final long totalPrice;
+  private final long customerCash;
+  private final long exchange;
+  private final long mileage;
 
-  public Receipt(long mileage) {
-    this.mileage = mileage;
-  }
   public Receipt(long customerId, LocalDateTime purchaseTime, long totalPrice, long customerCash,
       long exchange, long mileage) {
     this.customerId = customerId;
@@ -24,9 +21,14 @@ public class Receipt {
     this.mileage = mileage;
   }
 
+  public long getCustomerId() {
+    return customerId;
+  }
+
   public long getMileage() {
     return mileage;
   }
+
   public String toString() {
     return "Receipt = {" +
         "customerId=" + this.customerId + ", " +

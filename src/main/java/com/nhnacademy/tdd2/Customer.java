@@ -5,6 +5,19 @@ public class Customer {
   String password;
   long mileage;
   long cash;
+  String phoneNumber;
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getPhoneNumber() {
+    return this.phoneNumber;
+  }
+
+  public long getCustomerId() {
+    return customerId;
+  }
 
   public Customer(long customerId, String password) {
     this.customerId = customerId;
@@ -18,5 +31,13 @@ public class Customer {
 
   public void setCash(long cash) {
     this.cash = cash;
+  }
+
+  public long getMileage() {
+    return mileage;
+  }
+
+  public void addMileage(long mileage) {
+    this.mileage += mileage;
   }
 }

@@ -1,5 +1,7 @@
 package com.nhnacademy.tdd2;
 
+import java.time.LocalDateTime;
+
 public class PaymentService {
 
   private final CustomerRepository customerRepository;
@@ -21,14 +23,37 @@ public class PaymentService {
     }
 
     Customer customer = customerRepository.findById(customerId);
+
     if (customer == null) {
       throw new CustomerNotFoundException(customerId);
     }
-    if(customer.getCash() < amount){
+
+    long cash = customer.getCash();
+
+    if (cash < amount){
       throw new NotEnoughCashException();
     }
 
-    Receipt receipt = new Receipt(1L);
-    return receipt;
+    long exchange = exchangeCalculator(cash, amount);
+
+    long mileage = mileageCalculator(amount);
+
+    LocalDateTime purchaseTime = LocalDateTime.now();
+
+    return new Receipt(customerId, purchaseTime, cash, amount, exchange, mileage);
+  }
+
+  public long mileageCalculator(long amount) {
+    double mileagePercent = 0.01;
+
+    return (long) (amount * mileagePercent);
+  }
+
+  public long exchangeCalculator(long cash, long amount){
+    return cash - amount;
+  }
+
+  public void sendMessage(String phoneNumber){
+    System.out.println(phoneNumber + "결재 성공했습니다.");
   }
 }

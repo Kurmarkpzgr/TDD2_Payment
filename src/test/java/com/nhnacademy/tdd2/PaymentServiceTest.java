@@ -2,6 +2,7 @@ package com.nhnacademy.tdd2;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.anyByte;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -43,8 +44,8 @@ class PaymentServiceTest {
     String password = "validPw";
 
     Customer customer = new Customer(customerId, password);
-
     when(repository.findById(customerId)).thenReturn(customer);
+
   }
 
   //결제 금액 음수 테스트
@@ -59,6 +60,7 @@ class PaymentServiceTest {
         InvalidAmountException.class).hasMessageContaining("Invalid amount request", amount);
   }
 
+  //잔액 부족
   @Test
   void pay_notEnoughCash_thenThrowNotEnoughCashException(){
     long amount = 1000L;
@@ -73,8 +75,32 @@ class PaymentServiceTest {
         .hasMessageContaining("Not Enough Cash");
   }
 
+  //적립금 체크
   @Test
-  void pay_CheckMileage(){
+  void checkMileage(){
+    long amount = 1000L;
+    assertThat(service.mileageCalculator(amount)).isEqualTo((long)(amount * 0.01));
+  }
+
+  //잔돈 체크
+  @Test
+  void checkExchangeCalculator(){
+
+    long amount = 1000L;
+    Long customerId = 3423432L;
+    String password = "validPw";
+    long cash = 2000L;
+
+    Customer customer = new Customer(customerId, password);
+    customer.setCash(cash);
+
+    assertThat(service.exchangeCalculator(customer.getCash(),amount)).isEqualTo(cash-amount);
+
+  }
+
+  //영수증 체크
+  @Test
+  void pay_checkReceipt() {
     long amount = 1000L;
     Long customerId = 3423432L;
     String password = "validPw";
@@ -85,10 +111,16 @@ class PaymentServiceTest {
 
     Receipt receipt = service.pay(amount, customerId);
 
-    assertThat(receipt).isNotNull();
-    assertThat(receipt.getMileage()).isEqualTo(1L);
+    assertThat(receipt.getMileage()).isNotNull();
+    assertThat(receipt.getMileage()).isEqualTo((long)(amount * 0.01));
   }
 
+  @Test
+  void SMS_Check_SendMessage(){
+    long amount = 1000L;
+    Long customerId = 3423432L;
+    String password = "validPw";
+  }
 
   //결제 확인
 //  @Test
