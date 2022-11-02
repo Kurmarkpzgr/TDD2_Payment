@@ -3,7 +3,9 @@ package com.nhnacademy.tdd2;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+import java.util.Objects;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +20,6 @@ public class SmsTest {
 
   @BeforeEach
   void setUp() {
-
     repository = mock(CustomerRepository.class);
 
     service = new PaymentService(repository);
@@ -34,33 +35,34 @@ public class SmsTest {
   @Test
   void sendMessageFailure() {
     SMS fakeSms = new FakeSms();
+    long amount = 1_000L;
+    Long customId = 12341L;
 
-    customer.setPhoneNumber(null);
-    assertThatThrownBy(() -> fakeSms.sendMessage(customer)).isInstanceOf(
-        NoSuchPhoneNumberException.class).hasMessageContaining("No Such PhoneNumber");
+    when(repository.findById(customId)).thenReturn(customer);
+    Receipt receipt = service.pay(amount, customId);
 
-
+    assertThatThrownBy(() -> fakeSms.sendMessage(receipt))
+        .isInstanceOf(NullReceiptException.class)
+        .hasMessageContaining("Null Receipt Exception");
   }
 
-  @Test
-  void sendMessageSuccess() {
-    SMS fakeSms = new FakeSms();
-
-    customer.setPhoneNumber("010-1234-1234");
-    assertThat(fakeSms.sendMessage(customer)).hasMessageContaining("Payment Finished");
-
-  }
+//  @Test
+//  void sendMessageSuccess() {
+//    SMS fakeSms = new FakeSms();
+//
+//    customer.setPhoneNumber("010-1234-1234");
+//    assertThat(fakeSms.sendMessage(customer)).hasMessageContaining("Payment Finished");
+//
+//  }
 }
 
 class FakeSms implements SMS {
 
   @Override
-  public void sendMessage(Customer customer) {
-    if (customer.getPhoneNumber() == null) {
-      throw new NoSuchPhoneNumberException();
+  public void sendMessage(Receipt receipt) {
+    if (Objects.isNull(receipt)) {
+      throw new NullReceiptException();
     }
-    System.out.println(customer.getCustomerId() + "Payment Finished");
+    System.out.println("Payment Finished");
   }
-}
-
-
+  }

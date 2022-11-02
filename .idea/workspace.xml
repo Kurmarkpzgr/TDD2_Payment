@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b217e859-11d3-4537-bebe-b240e6be90e0" name="Changes" comment="firstCommit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/NoSuchPhoneNumberException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/SMS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/CustomerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/SmsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/NullReceiptException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/Receipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/PaymentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/PaymentServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/NoSuchPhoneNumberException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/SMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/SMS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/SmsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/SmsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,27 +36,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "module",
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;module&quot;,
+      &quot;directory&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.nhnacademy.tdd2" />
@@ -69,7 +65,7 @@
       <recent name="com.nhnacademy.tdd2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SmsTest.sendMessageSuccess">
+  <component name="RunManager" selected="JUnit.SmsTest.sendMessageFailure (1)">
     <configuration name="CustomerTest.check_use_mileage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD2_Payment" />
       <extension name="coverage">
@@ -86,21 +82,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TDD2_Payment" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nhnacademy.tdd2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
-      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.PaymentServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PaymentServiceTest.pay_service_result" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD2_Payment" />
       <extension name="coverage">
@@ -112,6 +93,22 @@
       <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
       <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.PaymentServiceTest" />
       <option name="METHOD_NAME" value="pay_service_result" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SmsTest.sendMessageFailure (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tdd-pay" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nhnacademy.tdd2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
+      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.SmsTest" />
+      <option name="METHOD_NAME" value="sendMessageFailure" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -151,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SmsTest.sendMessageFailure (1)" />
         <item itemvalue="JUnit.SmsTest.sendMessageSuccess" />
         <item itemvalue="JUnit.SmsTest.sendMessageFailure" />
         <item itemvalue="JUnit.PaymentServiceTest.pay_service_result" />
         <item itemvalue="JUnit.CustomerTest.check_use_mileage" />
-        <item itemvalue="JUnit.PaymentServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +165,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667349531468</updated>
       <workItem from="1667349533306" duration="17561000" />
+      <workItem from="1667372466731" duration="1429000" />
     </task>
     <task id="LOCAL-00001" summary="firstCommit">
       <created>1667349550485</created>
