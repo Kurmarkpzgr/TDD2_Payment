@@ -3,6 +3,8 @@ package com.nhnacademy.tdd2;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Objects;
@@ -40,9 +42,7 @@ public class SmsTest {
     when(repository.findById(customerId)).thenReturn(customer);
     Receipt receipt = service.pay(amount, customerId);
 
-    assertThatThrownBy(() -> fakeSms.sendMessage(receipt))
-        .isInstanceOf(NullReceiptException.class)
-        .hasMessageContaining("Null Receipt Exception");
+    assertThat(fakeSms.sendMessage(receipt)).contains("Payment Finished");
   }
 
 //  @Test
@@ -58,11 +58,11 @@ public class SmsTest {
 class FakeSms implements SMS {
 
   @Override
-  public void sendMessage(Receipt receipt) {
+  public String sendMessage(Receipt receipt) {
     if (Objects.isNull(receipt)) {
       throw new NullReceiptException();
     }
-    System.out.println("Payment Finished");
+    return "Payment Finished";
   }
 }
 

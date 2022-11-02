@@ -1,23 +1,11 @@
 package com.nhnacademy.tdd2;
 
 public class Customer {
+
   long customerId;
   String password;
   long mileage;
   long cash;
-  String phoneNumber;
-
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
-  }
-
-  public String getPhoneNumber() {
-    return this.phoneNumber;
-  }
-
-  public long getCustomerId() {
-    return customerId;
-  }
 
   public Customer(long customerId, String password) {
     this.customerId = customerId;
@@ -37,7 +25,11 @@ public class Customer {
     return mileage;
   }
 
-  public void addMileage(long mileage) {
+  public void renewMileage(long mileage) {
     this.mileage += mileage;
+  }
+
+  public long getCustomerId() {
+    return this.customerId;
   }
 }

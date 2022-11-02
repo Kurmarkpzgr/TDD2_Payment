@@ -1,15 +1,42 @@
 package com.nhnacademy.tdd2;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 public class PaymentService {
 
   private final CustomerRepository customerRepository;
 
+  //마일리지 미사용
   public PaymentService(CustomerRepository customerRepository) {
     this.customerRepository = customerRepository;
   }
+
+  public Receipt pay(long amount, Long customerId) {
+    if (amount < 0) {
+      throw new InvalidAmountException(amount);
+    }
+    Customer customer = customerRepository.findById(customerId);
+
+    if (customer == null) {
+      throw new CustomerNotFoundException(customerId);
+    }
+
+    long cash = customer.getCash();
+
+    if (cash < amount){
+      throw new NotEnoughCashException();
+    }
+
+    long exchange = exchangeCalculator(cash, amount);
+
+    long mileage = mileageCalculator(amount);
+
+    LocalDateTime purchaseTime = LocalDateTime.now();
+
+    customer.setCash(exchange);
+    return new Receipt(customerId, purchaseTime, cash, amount, exchange, mileage);
+  }
+
 
   /**
    * 결제처리
@@ -18,10 +45,11 @@ public class PaymentService {
    * @param customerId 고객 아이디
    * @return 영수증
    */
-  public Receipt pay(long amount, Long customerId, long usingMileage) {
 
+  //마일리지 사용
+  public Receipt pay(long amount, Long customerId, long usingMileage) {
     if(usingMileage < 0 || amount < usingMileage ) {
-//      exception
+      throw new InvalidUsingMileageException(usingMileage);
     }
 
     if (amount < 0) {
@@ -33,6 +61,9 @@ public class PaymentService {
       throw new CustomerNotFoundException(customerId);
     }
 
+    if(customer.getMileage() <usingMileage){
+      throw new NotEnoughMileageException();
+    }
     long cash = customer.getCash();
 
     amount = useMileage(amount,usingMileage);
@@ -47,6 +78,8 @@ public class PaymentService {
 
     LocalDateTime purchaseTime = LocalDateTime.now();
 
+    customer.renewMileage(mileage-usingMileage);
+    customer.setCash(exchange);
     return new Receipt(customerId, purchaseTime, cash, amount, exchange, mileage);
   }
 

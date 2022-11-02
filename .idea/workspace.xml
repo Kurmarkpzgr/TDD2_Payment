@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b217e859-11d3-4537-bebe-b240e6be90e0" name="Changes" comment="firstCommit">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/InvalidUsingMileageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/NotEnoughMileageException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nhnacademy/tdd2/PaymentService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/CustomerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/CustomerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/PaymentServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/PaymentServiceTest.java" afterDir="false" />
@@ -65,8 +68,8 @@
       <recent name="com.nhnacademy.tdd2" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SmsTest.sendMessageFailure (1)">
-    <configuration name="CustomerTest.check_use_mileage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.SmsTest.sendMessageTest">
+    <configuration name="CustomerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD2_Payment" />
       <extension name="coverage">
         <pattern>
@@ -76,13 +79,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
       <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.CustomerTest" />
-      <option name="METHOD_NAME" value="check_use_mileage" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerTest.pay_checkReceipt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TDD2_Payment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nhnacademy.tdd2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
+      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.CustomerTest" />
+      <option name="METHOD_NAME" value="pay_checkReceipt" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceTest.pay_service_result" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PaymentServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD2_Payment" />
       <extension name="coverage">
         <pattern>
@@ -92,29 +110,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
       <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.PaymentServiceTest" />
-      <option name="METHOD_NAME" value="pay_service_result" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SmsTest.sendMessageFailure (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tdd-pay" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.nhnacademy.tdd2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
-      <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.SmsTest" />
-      <option name="METHOD_NAME" value="sendMessageFailure" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SmsTest.sendMessageFailure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SmsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD2_Payment" />
       <extension name="coverage">
         <pattern>
@@ -124,13 +125,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
       <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.SmsTest" />
-      <option name="METHOD_NAME" value="sendMessageFailure" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SmsTest.sendMessageSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SmsTest.sendMessageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TDD2_Payment" />
       <extension name="coverage">
         <pattern>
@@ -140,7 +140,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.nhnacademy.tdd2" />
       <option name="MAIN_CLASS_NAME" value="com.nhnacademy.tdd2.SmsTest" />
-      <option name="METHOD_NAME" value="sendMessageSuccess" />
+      <option name="METHOD_NAME" value="sendMessageTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SmsTest.sendMessageFailure (1)" />
-        <item itemvalue="JUnit.SmsTest.sendMessageSuccess" />
-        <item itemvalue="JUnit.SmsTest.sendMessageFailure" />
-        <item itemvalue="JUnit.PaymentServiceTest.pay_service_result" />
-        <item itemvalue="JUnit.CustomerTest.check_use_mileage" />
+        <item itemvalue="JUnit.SmsTest.sendMessageTest" />
+        <item itemvalue="JUnit.SmsTest" />
+        <item itemvalue="JUnit.PaymentServiceTest" />
+        <item itemvalue="JUnit.CustomerTest" />
+        <item itemvalue="JUnit.CustomerTest.pay_checkReceipt" />
       </list>
     </recent_temporary>
   </component>
@@ -236,5 +236,20 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="firstCommit" />
     <option name="LAST_COMMIT_MESSAGE" value="firstCommit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/com/nhnacademy/tdd2/SmsTest.java</url>
+          <line>32</line>
+          <properties class="com.nhnacademy.tdd2.SmsTest" method="sendMessageTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

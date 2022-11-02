@@ -1,14 +1,14 @@
 package com.nhnacademy.tdd2;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
+
   // SUT
   PaymentService service;
   // DOC
@@ -28,32 +28,30 @@ public class CustomerTest {
   }
 
   @Test
-  void check_mileage(){
+  void checkRenewMileage() {
     long mileage = 500L;
-    long originalMileage =  customer.getMileage();
+    long originalMileage = customer.getMileage();
 
-    customer.addMileage(mileage);
+    customer.renewMileage(mileage);
 
     assertThat(customer.getMileage()).isEqualTo(originalMileage + mileage);
   }
 
+
   @Test
-  void use_Mileage(){
+  void pay_checkReceipt() {
+    when(repository.findById(customer.getCustomerId())).thenReturn(customer);
 
-    long amount = 2000L;
-    long usingMileage = 1000L;
-    long mileage = 500L;
+    Customer result = repository.findById(customer.getCustomerId());
 
-    customer.addMileage(mileage);
-
-    assertThatThrownBy(() -> service.useMileage(amount, usingMileage)).isInstanceOf(
-            NotEnoughMileageException.class).hasMessageContaining("Not enouch mileage");
-
-    verify(customer,times(1)).useMileage(any());
-
+    assertThat(result).isNotNull();
+    assertThat(result.getMileage()).isNotNull();
+    assertThat(result.getCash()).isNotNull();
+    assertThat(result.getCustomerId()).isNotNull();
   }
+
   @Test
-  void SMS_Check_SendMessage(){
+  void SMS_Check_SendMessage() {
     long mileage = 500L;
   }
 
